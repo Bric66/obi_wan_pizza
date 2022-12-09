@@ -24,7 +24,6 @@ export class CreateUser implements UseCase<UserInput, User> {
         }
 
         const id = this.idGateway.generate();
-        const libraryId = this.idGateway.generate();
         const hash = this.passwordGateway.encrypt(input.password)
         const user = User.create({
             id: id,
