@@ -1,5 +1,5 @@
-import { DeliveryDate } from '../valueObjects/DeliveryDate';
-import { Price } from '../valueObjects/Price';
+import { DeliveryDate } from '../ValueObjects/DeliveryDate';
+import { Price } from '../ValueObjects/Price';
 
 export type OrderProperties = {
     id: string;

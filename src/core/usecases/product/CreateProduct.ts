@@ -5,7 +5,6 @@ import {IdGateway} from "../../gateways/IdGateway";
 import {ProductErrors} from "../../errors/ProductErrors";
 
 export type ProductInput = {
-    id: string;
     price: number;
     name: string;
     description: string;
@@ -27,13 +26,12 @@ export class CreateProduct implements UseCase<ProductInput, Product> {
 
         const id = this.idGateway.generate();
         const product = Product.create({
-            id: id,
+            productId: id,
             price: input.price,
             name: input.name,
             size: input.size,
             description: input.description,
             foodType: input.foodType,
-
         })
 
         const result = await this.productRepository.create(product);

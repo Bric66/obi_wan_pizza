@@ -12,9 +12,10 @@ describe('When I call DeleteUser', () => {
     const id = uuidGateway.generate()
 
     it('should delete user', async () => {
+
         const result = await deleteUser.execute({
             userId: id,
         });
-        await expect(result).toBeFalsy();
+        expect(result).toBeFalsy();
     });
 })

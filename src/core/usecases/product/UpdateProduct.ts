@@ -1,22 +1,22 @@
 import {UseCase} from "../Usecase";
 import {Product} from "../../entities/Product";
 import {ProductRepository} from "../../repositories/ProductRepository";
-import {Price} from "../../valueObjects/Price";
+import {Price} from "../../ValueObjects/Price";
 
-export type ProductUpdatedInput = {
+export type UpdateProductInput = {
     productId : string;
-    price: Price;
+    price: number;
     name: string;
     description: string;
     updated: Date,
 }
 
-export class UpdateProduct implements UseCase<ProductUpdatedInput, Product> {
+export class UpdateProduct implements UseCase<UpdateProductInput, Product> {
 
     constructor(private readonly productRepository: ProductRepository) {
     }
 
-    async execute(input: ProductUpdatedInput): Promise<Product> {
+    async execute(input: UpdateProductInput): Promise<Product> {
         const product = await this.productRepository.getById(input.productId)
 
         product.update({

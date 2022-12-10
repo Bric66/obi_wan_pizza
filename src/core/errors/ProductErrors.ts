@@ -6,4 +6,11 @@ export namespace ProductErrors {
             super("PRODUCT_ALREADY_EXISTS")
         }
     }
+
+    export class DoesntExist extends DomainErrors {
+        constructor() {
+            super("PRODUCT_DOESNT_EXIST")
+        }
+    }
+
 }
