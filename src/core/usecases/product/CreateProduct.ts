@@ -2,7 +2,6 @@ import {UseCase} from "../Usecase";
 import {FoodType, Product, Size} from "../../entities/Product";
 import {ProductRepository} from "../../repositories/ProductRepository";
 import {IdGateway} from "../../gateways/IdGateway";
-import {Price} from "../../valueObjects/Price";
 import {ProductErrors} from "../../errors/ProductErrors";
 
 export type ProductInput = {

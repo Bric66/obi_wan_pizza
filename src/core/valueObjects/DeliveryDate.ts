@@ -4,18 +4,15 @@ export class DeliveryDate {
     value: Date;
 
     constructor(value: Date) {
-        this.value = value
-        if (!this.isValid()) {
-            throw new DeliveryDateErrors.Invalid()
-        }
+        this.value = this.isValid(value)
     }
 
-    isValid(): boolean {
+    isValid(value: Date): Date {
         const today = new Date()
-        const date = this.value
+        const date = value
         if (today.toDateString() != date.toDateString() || date.getHours() < 12 || date.getHours() > 23 ) {
-            return false
+            throw new DeliveryDateErrors.Invalid()
         }
-        return true
+        return value
     }
 }

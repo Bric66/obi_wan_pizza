@@ -1,12 +1,12 @@
-import { DeliveryDate } from '../valueObjects/DeliveryDate';
-import { Price } from '../valueObjects/Price';
+import { DeliveryDate } from '../ValueObjects/DeliveryDate';
+import { Price } from '../ValueObjects/Price';
 
 export type OrderProperties = {
     id: string;
     userId: string;
     address: string;
     creationDate: Date;
-    deliveryDate: DeliveryDate;
+    deliveryDate: Date;
     price: number;
     items: Object[];
 }
@@ -31,7 +31,7 @@ export class Order {
             userId: props.userId,
             address: props.address,
             creationDate: new Date(),
-            deliveryDate: new DeliveryDate(props.deliveryDate),
+            deliveryDate: new DeliveryDate(props.deliveryDate).value,
             items: props.items,
             price: new Price(props.price).value
         })
@@ -45,8 +45,8 @@ export class Order {
     }) 
     {
         this.props.address = props.address;
-        this.props.deliveryDate = new DeliveryDate(props.deliveryDate);
-        this.props.price =  new Price(props.price).value;
+        this.props.deliveryDate = new DeliveryDate(props.deliveryDate).value;
+        this.props.price = new Price(props.price).value;
         this.props.items = props.items
     }
 }

@@ -3,7 +3,7 @@ import {InMemoryProductRepository} from "../adapters/repositories/InMemoryProduc
 import {UuidGateway} from "../adapters/gateways/UuidGateway";
 import {CreateProduct} from "../../usecases/product/CreateProduct";
 import {UpdateProduct} from "../../usecases/product/UpdateProduct";
-import {Price} from "../../valueObjects/Price";
+import {Price} from "../../ValueObjects/Price";
 
 const dbUpdateProduct = new Map<string, Product>();
 

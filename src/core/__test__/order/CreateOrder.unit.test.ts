@@ -17,7 +17,6 @@ describe("Unit - CreateOrder", () => {
   
   it("shoul create an order", async  () => {
     const result = await createOrder.execute({
-      id: "12345",
       userId: "9999",
       address: "12, chemin du 12",
       // the deliveryDate must be that of the day and between 12 p.m. and 11 p.m.
@@ -37,7 +36,6 @@ describe("Unit - CreateOrder", () => {
 
   it("shoul throw INVALID_PRICE", async  () => {
     const result = () => createOrder.execute({
-        id: "12345",
         userId: "9999",
         address: "12, chemin du 12",
         deliveryDate: new Date(),
@@ -45,8 +43,8 @@ describe("Unit - CreateOrder", () => {
         items: [
           {
             productId: "145884998",
-            name: "pizzouletta",
-            price: 15,
+            Productame: "pizzouletta",
+            ProductPrice: 15,
             quantity: "3",
           },
         ],
@@ -56,7 +54,6 @@ describe("Unit - CreateOrder", () => {
 
   it("shoul throw INVALID_DELIVERY_DATE", () => {
     const result = () => createOrder.execute({
-        id: "12345",
         userId: "9999",
         address: "12, chemin du 12",
         deliveryDate: new Date('March 13, 08 23:20'),
@@ -64,8 +61,8 @@ describe("Unit - CreateOrder", () => {
         items: [
           {
             productId: "145884998",
-            name: "pizzouletta",
-            price: 15,
+            Productame: "pizzouletta",
+            ProductPrice: 15,
             quantity: "3",
           },
         ],

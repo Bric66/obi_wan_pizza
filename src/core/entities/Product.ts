@@ -1,4 +1,4 @@
-import {Price} from "../valueObjects/Price";
+import {Price} from "../ValueObjects/Price";
 
 export enum FoodType {
     PIZZA = "pizza",

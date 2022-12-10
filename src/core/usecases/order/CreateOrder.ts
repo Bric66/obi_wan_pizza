@@ -4,7 +4,6 @@ import { Order } from '../../entities/Order';
 import { UseCase } from './../Usecase';
 
 export type OrderInput = {
-    id: string;
     userId: string;
     address: string;
     deliveryDate: Date;
@@ -23,7 +22,7 @@ export class CreateOrder implements UseCase<OrderInput, Order> {
             id: id,
             userId: input.userId,
             address: input.address,
-            deliveryDate: input.deliveryDate ,
+            deliveryDate: input.deliveryDate,
             price: input.price,
             items: input.items
         })

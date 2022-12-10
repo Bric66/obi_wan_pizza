@@ -1,7 +1,7 @@
 import {UseCase} from "../Usecase";
 import {Product} from "../../entities/Product";
 import {ProductRepository} from "../../repositories/ProductRepository";
-import {Price} from "../../valueObjects/Price";
+import {Price} from "../../ValueObjects/Price";
 
 export type UpdateProductInput = {
     productId : string;
