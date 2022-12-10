@@ -1,4 +1,4 @@
-import {FoodType, Product, Size} from "../../Entities/Product";
+import {FoodType, Product, Size} from "../../entities/Product";
 import {CreateProduct} from "../../usecases/product/CreateProduct";
 import {InMemoryProductRepository} from "../adapters/repositories/InMemoryProductRepository";
 import {UuidGateway} from "../adapters/gateways/UuidGateway";

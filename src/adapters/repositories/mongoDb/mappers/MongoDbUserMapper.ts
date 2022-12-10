@@ -1,5 +1,5 @@
 import {userModel} from "./../models/user";
-import {User} from "./../../../../core/Entities/User";
+import {User} from "../../../../core/entities/User";
 import {Mapper} from "../../../../core/models/Mapper";
 
 export class MongoDbUserMapper implements Mapper<userModel, User> {

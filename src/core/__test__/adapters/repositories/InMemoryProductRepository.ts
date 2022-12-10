@@ -1,4 +1,4 @@
-import {Product} from "../../../Entities/Product";
+import {Product} from "../../../entities/Product";
 import {ProductRepository} from "../../../repositories/ProductRepository";
 
 export class InMemoryProductRepository implements ProductRepository {

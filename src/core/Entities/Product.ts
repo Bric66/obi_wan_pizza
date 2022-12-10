@@ -1,4 +1,4 @@
-import {Price} from "../ValueObjects/Price";
+import {Price} from "../valueObjects/Price";
 
 export enum FoodType {
     PIZZA = "pizza",
@@ -13,7 +13,7 @@ export enum Size {
 
 export type ProductProperties = {
     id: string;
-    price: Price;
+    price: number;
     name: string;
     description: string;
     foodType: FoodType;
@@ -39,7 +39,7 @@ export class Product {
     }) {
         return new Product({
             id: props.id,
-            price: new Price(props.price),
+            price: new Price(props.price).value,
             name: props.name.toLowerCase().trim(),
             description: props.description.toLowerCase().trim(),
             foodType: props.foodType,
@@ -54,7 +54,7 @@ export class Product {
         name: string;
         description: string;
     }) {
-        this.props.price = new Price(props.price);
+        this.props.price = new Price(props.price).value;
         this.props.name = props.name.toLowerCase().trim();
         this.props.description = props.description.toLowerCase().trim();
         this.props.updated = new Date();

@@ -1,7 +1,7 @@
 import {UuidGateway} from "../adapters/gateways/UuidGateway";
 import {DeleteUser} from "../../Usecases/user/DeleteUser";
 import {InMemoryUserRepository} from "../adapters/repositories/InMemoryUserRepository";
-import {User} from "../../Entities/User";
+import {User} from "../../entities/User";
 
 const dbDeleteUser = new Map<string, User>();
 

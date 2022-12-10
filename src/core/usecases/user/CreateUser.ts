@@ -1,5 +1,5 @@
 import {UseCase} from "../Usecase";
-import {User} from "../../Entities/User";
+import {User} from "../../entities/User";
 import {UserRepository} from "../../repositories/UserRepository";
 import {IdGateway} from "../../gateways/IdGateway";
 import {PasswordGateway} from "../../gateways/PasswordGateway";
