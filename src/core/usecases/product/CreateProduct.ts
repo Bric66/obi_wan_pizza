@@ -1,12 +1,11 @@
 import {UseCase} from "../Usecase";
-import {FoodType, Product, Size} from "../../Entities/Product";
+import {FoodType, Product, Size} from "../../entities/Product";
 import {ProductRepository} from "../../repositories/ProductRepository";
 import {IdGateway} from "../../gateways/IdGateway";
-import {Price} from "../../ValueObjects/Price";
+import {Price} from "../../valueObjects/Price";
 import {ProductErrors} from "../../errors/ProductErrors";
 
 export type ProductInput = {
-    id: string;
     price: number;
     name: string;
     description: string;
@@ -28,13 +27,12 @@ export class CreateProduct implements UseCase<ProductInput, Product> {
 
         const id = this.idGateway.generate();
         const product = Product.create({
-            id: id,
+            productId: id,
             price: input.price,
             name: input.name,
             size: input.size,
             description: input.description,
             foodType: input.foodType,
-
         })
 
         const result = await this.productRepository.create(product);

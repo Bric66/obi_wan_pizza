@@ -1,6 +1,6 @@
 import { v4 } from "uuid";
 import { UserModel } from "./../repositories/mongoDb/models/user";
-import { User } from "./../../core/Entities/User";
+import { User } from "../../core/entities/User";
 import { MongoDbUserRepository } from "./../repositories/mongoDb/MongoDbUserRepository";
 import mongoose from "mongoose";
 

@@ -1,5 +1,5 @@
 import { OrderRepository } from './../../../repositories/OrderRepository';
-import { Order } from './../../../Entities/Order';
+import { Order } from '../../../entities/Order';
 
 export class InMemoryOrderRepository implements OrderRepository {
     constructor(

@@ -1,5 +1,5 @@
 import { CreateUser } from "../../Usecases/user/CreateUser";
-import { User } from "../../Entities/User";
+import { User } from "../../entities/User";
 import { InMemoryUserRepository } from "../adapters/repositories/InMemoryUserRepository";
 import { UuidGateway } from "../adapters/gateways/UuidGateway";
 import { BcryptGateway } from "../adapters/gateways/BcryptGateway";
