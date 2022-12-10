@@ -1,4 +1,4 @@
-import {Product} from "../Entities/Product";
+import {Product} from "../entities/Product";
 
 export interface ProductRepository {
     create(input: Product): Promise<Product>;

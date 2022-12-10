@@ -6,7 +6,7 @@ import mongoose from "mongoose";
 import {userRouter} from "../routes/user";
 import supertest from "supertest";
 import {MongoDbUserRepository} from "../../adapters/repositories/mongoDb/MongoDbUserRepository";
-import {User} from "../../core/Entities/User";
+import {User} from "../../core/entities/User";
 import {UserModel} from "../../adapters/repositories/mongoDb/models/user";
 import {UserRepository} from "../../core/repositories/UserRepository";
 import {BcryptGateway} from "../../adapters/gateways/BcryptGateway";

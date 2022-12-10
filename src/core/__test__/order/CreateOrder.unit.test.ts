@@ -1,7 +1,7 @@
 import { InMemoryOrderRepository } from "./../adapters/repositories/InMemoryOrderRepository";
 import { UuidGateway } from "./../adapters/gateways/UuidGateway";
 import { CreateOrder } from "./../../usecases/order/CreateOrder";
-import { Order } from "./../../Entities/Order";
+import { Order } from "../../entities/Order";
 import { PriceErrors } from "../../errors/PriceErrors";
 import { DeliveryDateErrors } from "../../errors/DeliveryDateErrors";
 

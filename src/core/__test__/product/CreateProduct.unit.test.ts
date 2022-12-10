@@ -1,4 +1,4 @@
-import {FoodType, Product, Size} from "../../Entities/Product";
+import {FoodType, Product, Size} from "../../entities/Product";
 import {CreateProduct} from "../../usecases/product/CreateProduct";
 import {InMemoryProductRepository} from "../adapters/repositories/InMemoryProductRepository";
 import {UuidGateway} from "../adapters/gateways/UuidGateway";
@@ -23,20 +23,20 @@ describe("When I call CreateProduct ====>", () => {
 
     it("should create product", async () => {
         const result = await createProduct.execute({
-            id :"1234",
+            productId :"1234",
             description : "Au bon lait de brebis",
             name :"rebellious",
             foodType : FoodType.PIZZA,
             price : 20,
             size : Size.SMALL
         });
-        expect(result.props.id).toBeTruthy();
+        expect(result.props.productId).toBeTruthy();
         expect(result.props.name).toEqual("rebellious");
     });
 
     it("should throw if product already exists", async () => {
         await createProduct.execute({
-            id :"1234",
+            productId :"1234",
             description : "Au bon lait de brebis",
             name :"rebellious",
             foodType : FoodType.PIZZA,
@@ -45,7 +45,7 @@ describe("When I call CreateProduct ====>", () => {
         });
         const result = () =>
             createProduct.execute({
-                id :"1234",
+                productId :"1234",
                 description : "Au bon lait de brebis",
                 name :"rebellious",
                 foodType : FoodType.PIZZA,
