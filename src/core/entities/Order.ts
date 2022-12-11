@@ -1,5 +1,7 @@
+import { Price } from './../ValueObjects/Price';
+import { OrderErrors } from '../errors/OrderErrors';
 import { DeliveryDate } from '../ValueObjects/DeliveryDate';
-import { Price } from '../ValueObjects/Price';
+
 
 export type OrderProperties = {
     id: string;
@@ -8,7 +10,15 @@ export type OrderProperties = {
     creationDate: Date;
     deliveryDate: Date;
     price: number;
-    items: Object[];
+    items: ItemProperties[];
+}
+
+export type ItemProperties = {
+    orderId: string;
+    productId: string;
+    productName: string;
+    quantity: number;
+    price: number;
 }
 
 export class Order {
@@ -23,8 +33,6 @@ export class Order {
         userId: string;
         address: string;
         deliveryDate: Date;
-        price: number;
-        items: Object[];
     }) {
         return new Order({
             id: props.id,
@@ -32,21 +40,37 @@ export class Order {
             address: props.address,
             creationDate: new Date(),
             deliveryDate: new DeliveryDate(props.deliveryDate).value,
-            items: props.items,
-            price: new Price(props.price).value
+            items: [],
+            price: null
         })
     }
 
     update(props: {
         address: string;
         deliveryDate: Date;
-        price: number;
-        items: Object[];
     }) 
     {
         this.props.address = props.address;
         this.props.deliveryDate = new DeliveryDate(props.deliveryDate).value;
-        this.props.price = new Price(props.price).value;
-        this.props.items = props.items
+    }
+
+    addItem(item: ItemProperties) {
+        const price = item.price * item.quantity
+        this.props.price = new Price(this.props.price + price).value
+        this.props.items.push(item)
+    }
+
+    deleteItem(input: ItemProperties) {
+        const price = input.price * input.quantity;
+        this.props.price = new Price(this.props.price - price).value;
+        this.props.items.splice(this.props.items.findIndex(item => item.productName === input.productName) , 1)
+    }
+
+    getItem(productName: string) {
+       const item =  this.props.items.find(item => item.productName === productName)
+       if (!item) {
+        throw new OrderErrors.ItemNotFound()
+       }
+       return item
     }
 }

@@ -36,10 +36,10 @@ export class User {
         password: string;
     }   )
     {
-        this.props.userName=props.userName.toLowerCase().trim();
-        this.props.email=props.email.toLowerCase().trim();
-        this.props.password=props.password;
-        this.props.updated= new Date();
+        this.props.userName = props.userName.toLowerCase().trim();
+        this.props.email = props.email.toLowerCase().trim();
+        this.props.password = props.password;
+        this.props.updated = new Date();
     }
 }
 

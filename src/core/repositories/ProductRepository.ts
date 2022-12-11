@@ -3,7 +3,7 @@ import {Product} from "../entities/Product";
 export interface ProductRepository {
     create(input: Product): Promise<Product>;
 
-    getByNameAndSize(name: string,size : string): Promise<Product>;
+    getByName(name: string): Promise<Product>;
 
     getById(productId: string): Promise<Product>;
 

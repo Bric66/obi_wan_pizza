@@ -5,19 +5,13 @@ export enum FoodType {
     BEVERAGE = "beverage"
 }
 
-export enum Size {
-    SMALL = "small",
-    MEDIUM = "medium",
-    LARGE = "large"
-}
-
 export type ProductProperties = {
     productId: string;
     price: number;
     name: string;
     description: string;
     foodType: FoodType;
-    size: Size;
+    size: string[];
     created: Date;
     updated: Date;
 }
@@ -35,7 +29,6 @@ export class Product {
         name: string;
         description: string;
         foodType: FoodType;
-        size: Size;
     }) {
         return new Product({
             productId: props.productId,
@@ -43,7 +36,7 @@ export class Product {
             name: props.name.toLowerCase().trim(),
             description: props.description.toLowerCase().trim(),
             foodType: props.foodType,
-            size: props.size,
+            size: ["small", "medium", "large"],
             created: new Date(),
             updated: null,
         })
