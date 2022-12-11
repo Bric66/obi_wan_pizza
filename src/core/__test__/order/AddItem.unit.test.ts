@@ -1,8 +1,8 @@
-import { FoodType, Product } from "./../../Entities/Product";
-import { Order } from "./../../Entities/Order";
-import { InMemoryProductRepository } from "./../adapters/repositories/InMemoryProductRepository";
-import { AddItem } from "./../../usecases/order/AddItem";
-import { InMemoryOrderRepository } from "./../adapters/repositories/InMemoryOrderRepository";
+import {FoodType, Product} from "./../../Entities/Product";
+import {ItemSize, Order} from "./../../Entities/Order";
+import {InMemoryProductRepository} from "./../adapters/repositories/InMemoryProductRepository";
+import {AddItem} from "./../../usecases/order/AddItem";
+import {InMemoryOrderRepository} from "./../adapters/repositories/InMemoryOrderRepository";
 
 const orderDb = new Map<string, Order>();
 const productDb = new Map<string, Product>();
@@ -38,10 +38,11 @@ describe("Unit - AddItem", () => {
         orderId: "13245",
         productId: "546456",
         ProductName: "pizzouletta",
+        size : "xl",
         quantity: 4
     });
     // console.log(result)
-    expect(result.props.price).toEqual(60)
+    expect(result.props.price).toEqual(76)
     expect(result.props.items).toHaveLength(1)
   });
 });
