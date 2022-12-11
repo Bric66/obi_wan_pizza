@@ -67,7 +67,7 @@ describe("E2E - User Router", () => {
 
     it("Should post/user/sigIn", async () => {
         await userRepository.create(user);
-
+        console.log(user)
         await supertest(app)
             .post("/user/signIn")
             .send({

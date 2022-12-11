@@ -10,7 +10,7 @@ export class DeliveryDate {
     isValid(value: Date): Date {
         const today = new Date()
         const date = value
-        if (today.toDateString() != date.toDateString() || date.getHours() < 12 || date.getHours() > 23 ) {
+        if (today.toDateString() != date.toDateString() || date.getHours() < 10 || date.getHours() > 23 ) {
             throw new DeliveryDateErrors.Invalid()
         }
         return value

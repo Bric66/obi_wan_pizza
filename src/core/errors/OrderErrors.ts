@@ -5,4 +5,10 @@ export namespace OrderErrors {
             super("ORDER_NOT_FOUND")
         }
     }
+
+    export class ItemNotFound extends DomainErrors {
+        constructor() {
+            super("ITEM_NOT_FOUND")
+        }
+    }
 }

@@ -7,8 +7,6 @@ export type OrderInput = {
     userId: string;
     address: string;
     deliveryDate: Date;
-    price: number;
-    items: Object[];
 }
 export class CreateOrder implements UseCase<OrderInput, Order> {
     constructor(
@@ -23,8 +21,6 @@ export class CreateOrder implements UseCase<OrderInput, Order> {
             userId: input.userId,
             address: input.address,
             deliveryDate: input.deliveryDate,
-            price: input.price,
-            items: input.items
         })
         return await this.orderRepository.create(order)     
     }

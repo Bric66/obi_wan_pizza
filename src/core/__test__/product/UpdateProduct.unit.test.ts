@@ -1,4 +1,4 @@
-import {FoodType, Product, Size} from "../../entities/Product";
+import {FoodType, Product } from "../../entities/Product";
 import {InMemoryProductRepository} from "../adapters/repositories/InMemoryProductRepository";
 import {UuidGateway} from "../adapters/gateways/UuidGateway";
 import {CreateProduct} from "../../usecases/product/CreateProduct";
@@ -27,7 +27,7 @@ describe('When I call UpdateProduct====>', () => {
             name: "name",
             price: 20,
             updated: null,
-            size: Size.LARGE,
+            size: [],
             foodType: FoodType.PIZZA,
             created: new Date()
         })

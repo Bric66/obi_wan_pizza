@@ -1,4 +1,4 @@
-import {FoodType, Product, Size} from "../../entities/Product";
+import {FoodType, Product} from "../../entities/Product";
 import {InMemoryProductRepository} from "../adapters/repositories/InMemoryProductRepository";
 import {DeleteProduct} from "../../usecases/product/DeleteProduct";
 
@@ -15,7 +15,7 @@ describe('When I call DeleteProduct', () => {
             name: "name",
             price: 20,
             updated: null,
-            size: Size.LARGE,
+            size: [],
             foodType: FoodType.PIZZA,
             created: new Date()
         })

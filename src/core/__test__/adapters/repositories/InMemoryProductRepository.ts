@@ -12,9 +12,9 @@ export class InMemoryProductRepository implements ProductRepository {
         return Promise.resolve(product)
     }
 
-    getByNameAndSize(name: string, size: string): Promise<Product> {
+    getByName(name: string): Promise<Product> {
         const values = Array.from(this.dbProduct.values());
-        const product = values.find(v => v.props.name === name && v.props.size === size);
+        const product = values.find(v => v.props.name === name);
         return Promise.resolve(product);
     }
 
