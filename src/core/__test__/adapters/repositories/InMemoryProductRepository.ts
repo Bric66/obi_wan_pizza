@@ -34,4 +34,15 @@ export class InMemoryProductRepository implements ProductRepository {
     delete(productId: string): Promise<void> {
         return
     }
+
+    getProducts(): Promise<Object[]> {
+        const products = Array.from(this.dbProduct.values());
+        return Promise.resolve(products.map((product) =>
+            `productId: ${product.props.productId},
+            price: ${product.props.price},
+            name: ${product.props.name},
+            description: ${product.props.description}`))
+    }
+
+
 }

@@ -10,4 +10,6 @@ export interface ProductRepository {
     update (input: Product) : Promise<Product>;
 
     delete(productId:string): Promise<void>;
+
+    getProducts(): Promise<Object[]>;
 }

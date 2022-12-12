@@ -1,6 +1,6 @@
 import express from "express";
 import { CreateUser } from "../../core/Usecases/user/CreateUser";
-import { MongoDbUserRepository } from "../../adapters/repositories/mongoDb/MongoDbUserRepository";
+import { MongoDbUserRepository } from "../../adapters/repositories/mongoDb/repositories/MongoDbUserRepository";
 import { BcryptGateway } from "../../adapters/gateways/BcryptGateway";
 import { V4IdGateway } from "../../adapters/gateways/V4IdGateway";
 import { ConnectUser } from "../../core/Usecases/user/ConnectUser";

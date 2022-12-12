@@ -5,7 +5,7 @@ import {v4} from "uuid";
 import mongoose from "mongoose";
 import {userRouter} from "../routes/user";
 import supertest from "supertest";
-import {MongoDbUserRepository} from "../../adapters/repositories/mongoDb/MongoDbUserRepository";
+import {MongoDbUserRepository} from "../../adapters/repositories/mongoDb/repositories/MongoDbUserRepository";
 import {User} from "../../core/entities/User";
 import {UserModel} from "../../adapters/repositories/mongoDb/models/user";
 import {UserRepository} from "../../core/repositories/UserRepository";
