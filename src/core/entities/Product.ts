@@ -1,3 +1,4 @@
+import { SizeType } from './../types/SizeType';
 import {Price} from "../ValueObjects/Price";
 
 export enum FoodType {
@@ -11,7 +12,7 @@ export type ProductProperties = {
     name: string;
     description: string;
     foodType: FoodType;
-    size: string[];
+    size: SizeType[];
     created: Date;
     updated: Date;
 }
@@ -36,7 +37,7 @@ export class Product {
             name: props.name.toLowerCase().trim(),
             description: props.description.toLowerCase().trim(),
             foodType: props.foodType,
-            size: ["small", "medium", "large"],
+            size: Object.values(SizeType),
             created: new Date(),
             updated: null,
         })

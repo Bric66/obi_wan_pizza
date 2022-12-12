@@ -10,6 +10,7 @@ import {User} from "../../core/entities/User";
 import {UserModel} from "../../adapters/repositories/mongoDb/models/user";
 import {UserRepository} from "../../core/repositories/UserRepository";
 import {BcryptGateway} from "../../adapters/gateways/BcryptGateway";
+process.env.SECRET_KEY = "maytheforcebewithyou"
 
 const app = express();
 
@@ -67,7 +68,6 @@ describe("E2E - User Router", () => {
 
     it("Should post/user/sigIn", async () => {
         await userRepository.create(user);
-        console.log(user)
         await supertest(app)
             .post("/user/signIn")
             .send({

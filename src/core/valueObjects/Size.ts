@@ -1,14 +1,15 @@
+import { SizeType } from './../types/SizeType';
 import {SizeErrors} from "../errors/SIzeErrors";
 
 export class Size {
-    size: string;
+    value: SizeType;
 
-    constructor(size: string) {
-        this.size = this.isValid(size);
+    constructor(size: SizeType) {
+        this.value = this.isValid(size);
     }
 
-    isValid(size: string): string {
-        if (typeof size != "string" || size !== "small" && size !== "large" && size !== "xl") {
+    isValid(size: SizeType): SizeType {
+        if (typeof size !== "string" || !Object.values(SizeType).includes(size)) {
             throw new SizeErrors.Invalid()
         }
         return size;

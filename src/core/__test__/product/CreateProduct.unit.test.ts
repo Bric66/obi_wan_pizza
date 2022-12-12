@@ -3,6 +3,7 @@ import {CreateProduct} from "../../usecases/product/CreateProduct";
 import {InMemoryProductRepository} from "../adapters/repositories/InMemoryProductRepository";
 import {UuidGateway} from "../adapters/gateways/UuidGateway";
 import {ProductErrors} from "../../errors/ProductErrors";
+import { PriceErrors } from "../../errors/PriceErrors";
 
 const dbCreateProduct = new Map<string, Product>();
 
@@ -47,5 +48,16 @@ describe("When I call CreateProduct ====>", () => {
                 price : 20,
             });
         await expect(() => result()).rejects.toThrow(new ProductErrors.AlreadyExists());
+    });
+
+    it("should throw if product price is invalid", async () => {
+        const result = () =>
+            createProduct.execute({
+                description : "Au bon lait de brebis",
+                name :"rebellious",
+                foodType : FoodType.PIZZA,
+                price : -20,
+            });
+        await expect(() => result()).rejects.toThrow(PriceErrors.Invalid);
     });
 });
