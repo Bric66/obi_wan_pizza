@@ -1,3 +1,4 @@
+import { SizeType } from './../types/SizeType';
 import {Price} from "../ValueObjects/Price";
 
 export enum FoodType {
@@ -5,19 +6,13 @@ export enum FoodType {
     BEVERAGE = "beverage"
 }
 
-export enum Size {
-    SMALL = "small",
-    MEDIUM = "medium",
-    LARGE = "large"
-}
-
 export type ProductProperties = {
-    id: string;
-    price: Price;
+    productId: string;
+    price: number;
     name: string;
     description: string;
     foodType: FoodType;
-    size: Size;
+    size: SizeType[];
     created: Date;
     updated: Date;
 }
@@ -30,20 +25,19 @@ export class Product {
     }
 
     static create(props: {
-        id: string;
+        productId: string;
         price: number;
         name: string;
         description: string;
         foodType: FoodType;
-        size: Size;
     }) {
         return new Product({
-            id: props.id,
-            price: new Price(props.price),
+            productId: props.productId,
+            price: new Price(props.price).value,
             name: props.name.toLowerCase().trim(),
             description: props.description.toLowerCase().trim(),
             foodType: props.foodType,
-            size: props.size,
+            size: Object.values(SizeType),
             created: new Date(),
             updated: null,
         })
@@ -54,7 +48,7 @@ export class Product {
         name: string;
         description: string;
     }) {
-        this.props.price = new Price(props.price);
+        this.props.price = new Price(props.price).value;
         this.props.name = props.name.toLowerCase().trim();
         this.props.description = props.description.toLowerCase().trim();
         this.props.updated = new Date();

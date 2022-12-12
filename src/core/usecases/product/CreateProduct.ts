@@ -1,17 +1,14 @@
 import {UseCase} from "../Usecase";
-import {FoodType, Product, Size} from "../../Entities/Product";
+import {FoodType, Product } from "../../entities/Product";
 import {ProductRepository} from "../../repositories/ProductRepository";
 import {IdGateway} from "../../gateways/IdGateway";
-import {Price} from "../../ValueObjects/Price";
 import {ProductErrors} from "../../errors/ProductErrors";
 
 export type ProductInput = {
-    id: string;
     price: number;
     name: string;
     description: string;
     foodType: FoodType;
-    size: Size;
 }
 
 export class CreateProduct implements UseCase<ProductInput, Product> {
@@ -21,20 +18,18 @@ export class CreateProduct implements UseCase<ProductInput, Product> {
     }
 
     async execute(input: ProductInput): Promise<Product> {
-        const productExists = await this.productRepository.getByNameAndSize(input.name.toLowerCase().trim(), input.size);
+        const productExists = await this.productRepository.getByName(input.name.toLowerCase().trim());
         if (productExists) {
             throw new ProductErrors.AlreadyExists()
         }
 
         const id = this.idGateway.generate();
         const product = Product.create({
-            id: id,
+            productId: id,
             price: input.price,
             name: input.name,
-            size: input.size,
             description: input.description,
             foodType: input.foodType,
-
         })
 
         const result = await this.productRepository.create(product);

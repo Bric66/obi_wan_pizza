@@ -1,7 +1,7 @@
-import {MongoDbUserMapper} from "../mappers/MongoDbUserMapper";
-import {UserRepository} from "../../../../core/repositories/UserRepository";
-import {User} from "../../../../core/Entities/User";
-import {UserModel} from "../models/user";
+import { MongoDbUserMapper } from "../mappers/MongoDbUserMapper";
+import { UserRepository } from "../../../../core/repositories/UserRepository";
+import { User } from "../../../../core/entities/User";
+import { UserModel } from "../models/user";
 
 const mongoDbUserMapper = new MongoDbUserMapper();
 
