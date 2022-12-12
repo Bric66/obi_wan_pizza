@@ -9,7 +9,7 @@ export class Quantity {
     }
 
     isValid(value: number): number {
-        if (typeof value != "number" || value <=0 || !Number.isInteger(value)) {
+        if (typeof value != "number" || value <= 0 || !Number.isInteger(value)) {
             throw new QuantityErrors.Invalid()
         }
         return value;
