@@ -1,6 +1,6 @@
 import { OrderRepository } from './../../repositories/OrderRepository';
 import { Order } from '../../entities/Order';
-import { UseCase } from './../Usecase';
+import { UseCase } from '../UseCase';
 
 export class GetOrderById implements UseCase<string, Order> {
     constructor(

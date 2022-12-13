@@ -57,7 +57,7 @@ describe("Integration - MongoDbUserRepository", () => {
     const result = await mongoDbUserRepository.getById("12345");
     expect(result.props.userName).toEqual("user name");
   });
-  it("shoul throw if userId does not exist", async () => {
+  it("should throw if userId does not exist", async () => {
     const result = () => mongoDbUserRepository.getById("false ID");
     await expect(() => result()).rejects.toThrow();
   })

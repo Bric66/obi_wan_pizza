@@ -1,7 +1,7 @@
 import { SizeType } from './../../types/SizeType';
 import { OrderRepository } from './../../repositories/OrderRepository';
 import { Order } from './../../entities/Order';
-import { UseCase } from './../Usecase';
+import { UseCase } from '../UseCase';
 
 export type UpdateItemInput = {
     orderId: string;

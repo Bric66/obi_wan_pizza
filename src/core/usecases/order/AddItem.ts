@@ -2,7 +2,7 @@ import { SizeType } from './../../types/SizeType';
 import {ProductRepository} from './../../repositories/ProductRepository';
 import {OrderRepository} from './../../repositories/OrderRepository';
 import { Order} from './../../Entities/Order';
-import {UseCase} from './../Usecase';
+import {UseCase} from '../UseCase';
 
 export type AddItemInput = {
     orderId: string,
