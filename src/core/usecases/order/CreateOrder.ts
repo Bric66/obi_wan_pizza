@@ -1,7 +1,7 @@
 import { IdGateway } from './../../gateways/IdGateway';
 import { OrderRepository } from './../../repositories/OrderRepository';
 import { Order } from '../../entities/Order';
-import { UseCase } from './../Usecase';
+import { UseCase } from '../UseCase';
 
 export type OrderInput = {
     userId: string;

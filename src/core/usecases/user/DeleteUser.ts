@@ -1,4 +1,4 @@
-import {UseCase} from "../Usecase";
+import {UseCase} from "../UseCase";
 import {UserRepository} from "../../repositories/UserRepository";
 
 export type UserDeletedInput = {

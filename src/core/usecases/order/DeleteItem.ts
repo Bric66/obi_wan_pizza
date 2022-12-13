@@ -1,6 +1,6 @@
 import { OrderRepository } from './../../repositories/OrderRepository';
 import { Order} from './../../Entities/Order';
-import { UseCase } from './../Usecase';
+import { UseCase } from '../UseCase';
 
 export type DeleteItemInput = {
     orderId: string,

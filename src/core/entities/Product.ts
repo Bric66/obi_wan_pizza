@@ -1,4 +1,4 @@
-import { SizeType } from './../types/SizeType';
+import {SizeType} from './../types/SizeType';
 import {Price} from "../ValueObjects/Price";
 
 export enum FoodType {

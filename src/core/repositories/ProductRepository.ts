@@ -11,5 +11,5 @@ export interface ProductRepository {
 
     delete(productId:string): Promise<void>;
 
-    getProducts(): Promise<Object[]>;
+    getAll(): Promise<Product[]>;
 }
