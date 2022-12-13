@@ -12,17 +12,17 @@ export type OrderProperties = {
   creationDate: Date;
   deliveryDate: Date;
   price: number;
-  items: ItemProperties[];
+  items?: ItemProperties[];
 };
 
 export type ItemProperties = {
-  orderId: string;
-  productId: string;
-  productName: string;
-  size: SizeType;
-  quantity: number;
-  price: number;
-  productPrice: number
+  orderId?: string;
+  productId?: string;
+  productName?: string;
+  size?: SizeType;
+  quantity?: number;
+  price?: number;
+  productPrice?: number;
 };
 
 export type UpdateItem = {
@@ -89,18 +89,28 @@ export class Order {
     return item;
   }
 
-  updateItem(item: ItemProperties) {
-    item.quantity = new Quantity(item.quantity).value;
-    item.size = new Size(item.size).value;
+  updateItem(item: {
+    productId: string;
+    quantity: number;
+    size: SizeType
+  }) {
 
-    if (item.size === SizeType.MEDIUM) {
-        item.productPrice += 2;
-      }
-    if (item.size === SizeType.LARGE) {
-        item.productPrice += 4;
-      }
 
-    const price = item.productPrice * item.quantity;
-    this.props.price = new Price( price).value;
+    this.props.items = this.props.items.map((elm) => {
+      if (elm.productId === item.productId) {
+        elm.quantity = new Quantity(item.quantity).value;
+        elm.size = new Size(item.size).value;
+
+        if (elm.size === SizeType.MEDIUM) {
+          elm.productPrice += 2;
+        }
+        if (elm.size === SizeType.LARGE) {
+          elm.productPrice += 4;
+        }
+      }
+      return elm;
+    });
+    this.props.price = this.props.items.map(elm => elm.productPrice * elm.quantity)
+                                        .reduce((a, b) => a + b)
   }
 }

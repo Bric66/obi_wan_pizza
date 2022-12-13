@@ -25,8 +25,8 @@ export class InMemoryOrderRepository implements OrderRepository {
         return input
     }
 
-    async delete(input: Order): Promise<void> {
-        this.db.delete(input.props.id)
+    async delete(id: string): Promise<void> {
+        this.db.delete(id)
         return 
     }
 

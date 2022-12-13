@@ -6,6 +6,6 @@ export interface OrderRepository {
 
     updateOrder(input: Order): Promise<Order>;
 
-    delete(input: Order): Promise<void>;
+    delete(input: string): Promise<void>;
 
 }
