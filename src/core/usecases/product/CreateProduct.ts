@@ -1,4 +1,4 @@
-import {UseCase} from "../Usecase";
+import {UseCase} from "../UseCase";
 import {FoodType, Product } from "../../entities/Product";
 import {ProductRepository} from "../../repositories/ProductRepository";
 import {IdGateway} from "../../gateways/IdGateway";

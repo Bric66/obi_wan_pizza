@@ -1,6 +1,6 @@
 import { OrderRepository } from './../../repositories/OrderRepository';
 import { Order } from '../../entities/Order';
-import { UseCase } from './../../usecases/Usecase';
+import { UseCase } from '../UseCase';
 
 export class DeleteOrder implements UseCase<string, Order> {
     constructor(
@@ -8,8 +8,7 @@ export class DeleteOrder implements UseCase<string, Order> {
     ) {}
 
     async execute(orderId: string): Promise<Order> {
-        const order = await this.orderRepository.getById(orderId)
-        this.orderRepository.delete(order)
+        this.orderRepository.delete(orderId)
         return
     }
 }

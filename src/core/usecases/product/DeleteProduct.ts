@@ -1,4 +1,4 @@
-import {UseCase} from "../Usecase";
+import {UseCase} from "../UseCase";
 import {ProductRepository} from "../../repositories/ProductRepository";
 
 export type ProductDeletedInput = {
