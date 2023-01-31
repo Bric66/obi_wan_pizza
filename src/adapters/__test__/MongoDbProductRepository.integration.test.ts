@@ -27,10 +27,9 @@ describe("Integration - MongoDbProductRepository", () => {
             foodType: FoodType.PIZZA
         })
 
-
     })
     beforeEach(async () => {
-        await mongoDbProductRepository.create(product);
+        const test= await mongoDbProductRepository.create(product);
     });
     afterEach(async () => {
         await ProductModel.collection.drop();
